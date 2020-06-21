@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="mb-5">Contact us</h1>
+
+  <%= form_for :contact, url: contacts_path, :html => {:class => "form-horizontal center"} do |f| %>
+    <% if @contact && @contact.errors.any? %>
+      <p>
+        <ul>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg %>
+            </li>
+          <% end %>
+        </ul>
+      </p>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :email, :class => "form-group" %>
+      <div class="col-md-8">
+        <%= f.text_field :email, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :message, :class => "form-group" %>
+      <div class="col-md-8">
+        <%= f.text_area :message, :class => "form-control" %>
+      </div>
+    </div>
+
+      <%= f.submit 'Send message', :class => "btn btn-primary btn-lg" %>
+  <% end %>
+</div>

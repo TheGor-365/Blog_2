@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 class="mb-5">List of articles:</h1>
+
+  <% @articles.each do |article| %>
+  <div class="container mt-5">
+    <h4 class="text-muted mb-3">
+      <%= article.title %>
+    </h4>
+    <div class="p-2 border rounded">
+      <%= article.text %>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        <%= link_to 'Show', article_path(article), :class => "btn btn-primary btn-sm mr-2" %>
+        <%= link_to 'Edit', edit_article_path(article), :class => "btn btn-primary btn-sm mr-2" %>
+        <%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+</div>
