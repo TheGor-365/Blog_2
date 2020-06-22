@@ -5,6 +5,28 @@
     <%= @article.text %>
   </p>
 
+  <div class="container p-0 mt-5 mb-5 border rounded p-3">
+    <h5 class="text-muted mt-3 mb-3">
+      Comments:
+    </h5>
+    <% @article.comments.each do |comment| %>
+      <p class="mt-4">
+        <%= comment.body %>
+      </p>
+      <small class="text-muted mr-2">
+        Author:
+      </small>
+      <small>
+        <%= comment.author %>
+      </small>
+      <hr>
+    <% end %>
+  </div>
+
+  <p class="text-muted">
+    Add comment
+  </p>
+
   <%= form_for([@article, @article.comments.build]) do |f| %>
   <div class="form-group">
     <%= f.label :author, :class => "form-group" %>
