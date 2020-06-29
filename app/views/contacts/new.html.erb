@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mb-5">Contact us</h1>
+  <h1 class="mb-5"><%= t('contacts.contact_us') %></h1>
 
   <%= form_for :contact, url: contacts_path, :html => {:class => "form-horizontal center"} do |f| %>
     <% if @contact && @contact.errors.any? %>
